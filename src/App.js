@@ -37,11 +37,21 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      backgroundColor : 'white',
+      /* 'background-color' : 'red', */
+      font : 'inherit',
+      border : '1px solid blue',
+      padding : '8px',
+      cursor : 'pointer'
+    }
+
     return (
       <div className="App">
         <h1>I'm React App </h1>
         <p> This is working </p>
-        <button onClick={this.swithButtonHandler.bind(this,'Vijay Pothamsetty')}>Swith Button</button>
+        <button style = {style} onClick={this.swithButtonHandler.bind(this,'Vijay Pothamsetty')}>Swith Button</button>
           <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age} />
