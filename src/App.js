@@ -12,12 +12,16 @@ class App extends Component {
     ]
   }
 
+  swithButtonHandler = () => {
+    console.log("Was clicked..!");
+  }
+
   render() {
     return (
       <div className="App">
         <h1>I'm React App </h1>
         <p> This is working </p>
-        <button>Swith Button</button>
+        <button onClick={this.swithButtonHandler()}>Swith Button</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}> My hobbies: Coding </Person>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
