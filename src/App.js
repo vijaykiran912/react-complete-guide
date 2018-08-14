@@ -29,42 +29,55 @@ class App extends Component {
       {
         persons: [
           { "name": "Vijay", "age": 29 },
-          { "name":  event.target.value, "age": 30 },
+          { "name": event.target.value, "age": 30 },
           { "name": "Pujara", "age": 31 }
-        ]
+        ],
+        showPersons: false
       }
     );
+  }
+
+  tooglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
   }
 
   render() {
 
     const style = {
-      backgroundColor : 'white',
+      backgroundColor: 'white',
       /* 'background-color' : 'red', */
-      font : 'inherit',
-      border : '1px solid blue',
-      padding : '8px',
-      cursor : 'pointer'
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
     }
 
     return (
       <div className="App">
         <h1>I'm React App </h1>
         <p> This is working </p>
-        <button style = {style} onClick={this.swithButtonHandler.bind(this,'Vijay Pothamsetty')}>Swith Button</button>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age} />
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            nameChanged={this.nameChangedHandler}> My hobbies: Coding
-          </Person>
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age} 
-            clicked={() => this.swithButtonHandler('Vijay Reddy')}>
-          </Person>
+        <button style={style} onClick={this.tooglePersonsHandler}>
+          Switch Button
+        </button>
+        {this.state.showPersons ?
+          <div>
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age} />
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+              nameChanged={this.nameChangedHandler}>
+              My hobbies: Coding
+            </Person>
+            <Person
+              name={this.state.persons[2].name}
+              age={this.state.persons[2].age}
+              clicked={() => this.swithButtonHandler('Vijay Reddy')}>
+            </Person> 
+          </div> : null
+        }
       </div>
     );
   }
