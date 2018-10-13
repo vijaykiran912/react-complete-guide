@@ -33,7 +33,8 @@ class App extends PureComponent {
       { id: "1", name: "Vijay", age: 29 },
       { id: "2", name: "Kohli", age: 30 },
       { id: "3", name: "Pujara", age: 32 }
-    ]
+    ],
+    toogleClicked : 0
   }
 
   nameChangedHandler = (event, id) => {
@@ -65,7 +66,16 @@ class App extends PureComponent {
 
   tooglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    //setState if called from other places can give incorrect result, if use access 
+    //state in setState
+    // this.setState({ showPersons: !doesShow,
+    //   toogleClicked : this.state.toogleClicked+1
+    // });
+
+    this.setState((prevState,props) => {
+      return { showPersons: !doesShow,
+          toogleClicked : prevState.toogleClicked+1 }    
+    });
   }
 
   render() {
