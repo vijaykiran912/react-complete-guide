@@ -40,6 +40,11 @@ class Person extends Component {
         </div>
         )
 
+        // return [
+        //     <p key="1" onClick={this.props.click}>I am {this.props.name}, {this.props.age} year's of age</p>,
+        //     <p key="2">{this.props.children}</p>,
+        //     <input key="3" type="text" onChange={this.props.nameChanged} value={this.props.name}/>
+        //     ]
     }
 }
 
