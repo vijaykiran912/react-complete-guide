@@ -4,8 +4,22 @@ import classes from './Person.css';
 import './Person.css';
 
 class Person extends Component {
-    render(){
 
+    constructor(props){
+        super(props);
+        console.log("[Person.js] Inside Constructor ", props);
+      }
+    
+      componentWillMount(){
+        console.log("[Person.js] Inside componentWillMount ");
+      }
+    
+      componentDidMount(){
+        console.log("[Person.js] Inside componentDidMount ");
+      }
+
+    render(){
+        console.log("[Person.js] Inside Render()");
         return (
             <div className={classes.Person} >
             <p onClick={this.props.click}>I am {this.props.name}, {this.props.age} year's of age</p>

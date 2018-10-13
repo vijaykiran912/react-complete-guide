@@ -5,6 +5,20 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
+  constructor(props){
+    //Must add super call
+    super(props);
+    //This is the only place where we can use props without this keyword
+    console.log("[App.js] Inside Constructor ", props.title);
+  }
+
+  componentWillMount(){
+    console.log("[App.js] Inside componentWillMount ", this.props.title);
+  }
+
+  componentDidMount(){
+    console.log("[App.js] Inside componentDidMount ");
+  }
   state = {
     persons: [
       { id: "1", name: "Vijay", age: 29 },
@@ -46,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log("[App.js] Inside Render()");
     let persons = null;
     if (this.state.showPersons) {
       persons = (<Persons persons={this.state.persons}
